@@ -62,7 +62,8 @@
     const inputs = document.querySelectorAll('.controls input');
 
     function handleUpdate(){
-      console.log(this.value) 
+    const suffix = this.dataset.sizing || ""; //will display given "sizing" (px) or nothing ("") when there's a change in the range
+    document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix) //whever there's a change in base, blur, or color, it sill "set" at that value and display that
     }
 
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
